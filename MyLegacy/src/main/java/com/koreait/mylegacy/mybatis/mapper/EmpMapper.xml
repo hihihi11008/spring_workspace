@@ -16,7 +16,7 @@
 	</select>
 	
 	<insert id="insert" parameterType="Emp">
-		insert intpo emp(empno,ename,sal,deptno)
+		insert into emp(empno,ename,sal,deptno)
 		values(#{empno},#{ename},#{sal},#{dept.deptno})
 	</insert>
 

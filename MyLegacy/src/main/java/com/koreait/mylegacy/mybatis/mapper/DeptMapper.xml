@@ -3,7 +3,7 @@
 <mapper namespace="Dept">
 
 	<!-- 한건가져오기 -->
-	<select id="selectById" parameterType="int" resultType="List">
+	<select id="selectById" parameterType="int" resultType="Dept">
 		select * from dept where deptno=#{deptno}
 	</select>
 	
