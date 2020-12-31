@@ -89,4 +89,9 @@ create sequence seq_image
 increment by 1
 start with 1;
 
+insert into topcategory(topcategory_id,name, rank) values(seq_topcategory.nextval, 'top wear', 1);
+insert into topcategory(topcategory_id,name, rank) values(seq_topcategory.nextval, 'down wear', 2);
+insert into topcategory(topcategory_id,name, rank) values(seq_topcategory.nextval, 'accessory', 3);
+insert into topcategory(topcategory_id,name, rank) values(seq_topcategory.nextval, 'shoes', 4);
+
 
