@@ -117,6 +117,7 @@ public class ProductController {
 		//확장자 얻기 
 		String ext=fileManager.getExtend(product.getRepImg().getOriginalFilename());
 		String filename = time+"."+ext;
+		
 		try {
 			product.getRepImg().transferTo(new File(fileManager.getSaveDir()+"/"+filename));
 			logger.debug(filename);
