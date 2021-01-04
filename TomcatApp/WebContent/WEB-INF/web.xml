@@ -13,6 +13,4 @@
 	 <listener>
 	 	<listener-class>test.MyContextListener</listener-class>
 	 </listener>
-	 
-	 
 </web-app>
