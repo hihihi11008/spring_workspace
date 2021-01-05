@@ -94,4 +94,18 @@ insert into topcategory(topcategory_id,name, rank) values(seq_topcategory.nextva
 insert into topcategory(topcategory_id,name, rank) values(seq_topcategory.nextval, 'accessory', 3);
 insert into topcategory(topcategory_id,name, rank) values(seq_topcategory.nextval, 'shoes', 4);
 
+create table member(
+ member_id number primary key
+ ,user_id varchar(20)
+ ,name varchar(20)
+ ,password varchar(20)
+ ,email_id varchar(20)
+ ,email_server varchar(20)
+ ,zipcode varchar(10)
+ ,addr varchar(50)
+ ,regdate date default sysdate
+);
 
+create sequence seq_member
+increment by 1
+start with 1;
