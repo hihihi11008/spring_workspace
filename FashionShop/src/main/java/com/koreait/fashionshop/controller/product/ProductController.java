@@ -1,4 +1,4 @@
-package com.koreait.fashionshop.controller.admin;
+package com.koreait.fashionshop.controller.product;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class ProductController implements ServletContextAware{
 	private FileManager fileManager;
 	
 	//우리가 왜 Servletcontext를 써야하는가? getRealPath()사용하려공
-	private ServletContext servletContext;
+	private ServletContext servletContext; 
 	
 	@Override
 	public void setServletContext(ServletContext servletContext) {
@@ -160,5 +160,36 @@ public class ProductController implements ServletContextAware{
 		sb.append("\"msg\":\""+e.getMessage()+"\"");
 		sb.append("}");
 		return sb.toString();
+	}
+	
+	/*****************************************
+	 	쇼핑몰 프론트 요청 처리
+	 *****************************************/
+	
+	//상품목록 요청 처리 
+	@RequestMapping(value = "/shop/product/list", method = RequestMethod.GET)
+	public ModelAndView getShopProductList(int subcategory_id) {//하위카테고리의 id 
+		List topList = topCategoryService.selectAll();//상품카테고리 목록 
+		List productList = productService.selectById(subcategory_id);//상품목록
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("topList",topList);
+		mav.addObject("productList",productList);
+		
+		mav.setViewName("shop/product/list");
+		return mav;
+	}
+	
+	//상품상세보기 요청 
+	@RequestMapping(value = "/shop/product/detail", method = RequestMethod.GET)
+	public ModelAndView getShopProductDetail(int product_id) {
+		List topList = topCategoryService.selectAll();//상품카테고리 목록 
+		Product product = productService.select(product_id);//상품1건가져오기
+		
+		ModelAndView mav = new ModelAndView("shop/product/detail");
+		mav.addObject("topList",topList);
+		mav.addObject("product",product);
+		
+		return mav;
 	}
 }

@@ -1,5 +1,7 @@
 package com.koreait.fashionshop.model.domain;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
@@ -19,9 +21,14 @@ public class Product {
 	private MultipartFile repImg; //대표이미지 
 	private MultipartFile[] addImg;//추가이미지는 선택사항이며, 동시에 배열 
 	
+	//조인할때 사용함
+	private Score score;
+	private List<Psize> psizeList;
+	private List<Color> colorList;
+	private List<Image> imageList;
 	
+	//insert할때 사용
 	private Color[] color;
-	
 	private Psize[] psize;
 	
 }
