@@ -17,19 +17,27 @@
 <!-- Title  -->
 <title>Karl - Fashion Ecommerce Template | Home</title>
 <%@ include file="../inc/header.jsp" %>
-<script>
-	function addCart(){
-		var formData = $("#cart_form").serialize();//파라미터를 전송할 수 있는 상태의 문자열로 나열해쥼
-		$.ajax({
-			url:"/shop/cart/regist",
-			type:"post",
-			data:formData,
-			success:function(responseData){
-				alert(responseData);
-			}
-		});
-	}
-</script>		
+<script type="text/javascript">
+		//비동기 방식으로 장바구니에 담자!!
+		function addCart(){
+			var formData=$("#cart_form").serialize();//파라미터를 전송할 수 있는 상태의 문자열로 나열해줌
+			
+			$.ajax({
+				url:"/async/shop/cart/regist",
+				type:"post", 
+				data:formData,
+				success:function(responseData){
+					if(responseData.resultCode==1){
+						if(confirm(responseData.msg+"\n장바구니에 담긴 상품을 보러갈까요?")){
+							location.href=responseData.url;							
+						}
+					}else{
+						alert(responseData.msg);
+					}
+				}
+			});
+		}
+	</script>	
 </head>
 
 <body>
