@@ -1,7 +1,7 @@
 /*
  * 파일과 관련된 유용한 기능을 모아놓는 클래스
  * */
-package com.koreait.fashionshop.common;
+package com.koreait.fashionshop.model.common;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-<%@page import="com.koreait.fashionshop.common.Formatter"%>
+<%@page import="com.koreait.fashionshop.model.common.Formatter"%>
 <%@page import="com.koreait.fashionshop.model.domain.Cart"%>
 <%@ page contentType="text/html; charset=utf-8"%>
 <%
@@ -37,6 +37,10 @@ function delCart(){
 	} 
 	$("#cart-form").submit();
 } 
+ 
+ function checkoutForm(){
+	 location.href="/shop/payment/form";
+ }
  </script>		
 </head>
 
@@ -146,7 +150,7 @@ function delCart(){
                                 <li><span>Shipping</span> <span>Free</span></li>
                                 <li><span><strong>Total</strong></span> <span><strong><%=Formatter.getCurrency(sum) %></strong></span></li>
                             </ul>
-                            <a href="checkout.html" class="btn karl-checkout-btn">Proceed to checkout</a>
+                            <a href="javascript:checkoutForm()" class="btn karl-checkout-btn">Proceed to checkout</a>
                         </div>
                     </div>
                 </div>

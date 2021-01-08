@@ -1,4 +1,4 @@
-package com.koreait.fashionshop.common;
+package com.koreait.fashionshop.model.common;
 
 /*
  * paging 처리를 재사용성을 높이 클래스 정의
