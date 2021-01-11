@@ -5,6 +5,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class Bell {
 	public void sound() {
-		System.out.println("µùµ¿¢Ý");
+		System.out.println("µùµ¿¢Ý¢Ý¢Ý¢Ý¢Ý¢Ý¢Ý");
+	}
+	public void ding() {
+		System.out.println("»£ºü»£ºüºü»£¢Ý");
 	}
 }

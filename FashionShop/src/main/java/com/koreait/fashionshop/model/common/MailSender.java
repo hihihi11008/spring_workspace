@@ -35,7 +35,6 @@ public class MailSender {
 		});
 		
 		try {
-			
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(user));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));

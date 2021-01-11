@@ -1,5 +1,6 @@
 package com.koreait.fashionshop.controller.payment;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -30,11 +31,12 @@ public class RestPaymentController {
 	// 장바구니에 상품 담기 요청
 	@RequestMapping(value = "/shop/cart/regist", method = RequestMethod.POST)
 	@ResponseBody
-	public MessageData registCart(Cart cart, HttpSession session) {
-		if(session.getAttribute("member")==null) {
-			throw new LoginRequiredException("로그인이 필요한 서비스입니다.");
-		}
-		
+	public MessageData registCart(Cart cart, HttpServletRequest request) {
+		/*
+		 * if(session.getAttribute("member")==null) { throw new
+		 * LoginRequiredException("로그인이 필요한 서비스입니다."); }
+		 */
+		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("member");
 		logger.debug("product_id " + cart.getProduct_id());
 		logger.debug("quantity " + cart.getQuantity());
@@ -60,13 +62,5 @@ public class RestPaymentController {
 		return messageData;
 	}
 
-	@ExceptionHandler(LoginRequiredException.class)
-	@ResponseBody
-	public MessageData handleException(LoginRequiredException e) {
-		MessageData messageData = new MessageData();
-		messageData.setResultCode(0);
-		messageData.setMsg(e.getMessage());
-
-		return messageData;
-	}
+	
 }

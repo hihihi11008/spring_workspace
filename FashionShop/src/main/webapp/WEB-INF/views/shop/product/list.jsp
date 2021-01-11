@@ -17,42 +17,42 @@
     <!-- Title  -->
     <title>Karl - Fashion Ecommerce Template | Home</title>
 	<%@ include file="../inc/header.jsp" %>
-	<script>
-	$(function(){
-		//product-quicview를 클릭했을때...
-		$(".product-quicview").on("click", function(e){
-			var obj = e.target;
-			var product_id=$(obj).data("product_id");
-			var product_name=$(obj).data("product_name");
-			var price=$(obj).data("price");
-			var brand=$(obj).data("brand");
-			var detail=$(obj).data("detail");
-			var filename=$(obj).data("filename");
-			
-			console.log(product_id);
-			console.log(product_name);
-			console.log(price);
-			console.log(brand);
-			console.log(detail);
-			console.log(filename);
-			//퀵뷰창의 상품 정보에 출력
-			
-			//이미지
-			$(".quickview_pro_img img").attr({
-				src:"/resources/data/basic/"+product_id+"."+filename
-			});
-			
-			$(".quickview_pro_des .title").html(product_name);//상품명
-			$(".quickview_pro_des .price").html(price);//가격
-			$(".quickview_pro_des p").html(detail);//상세내용
-			
-			$(".quickview_pro_des a").on("click", function(e){
-				location.href="/shop/product/detail?product_id="+product_id;
-			});
+<script>
+$(function(){
+	//product-quicview를 클릭했을때...
+	$(".product-quicview").on("click", function(e){
+		var obj = e.target;
+		var product_id=$(obj).data("product_id");
+		var product_name=$(obj).data("product_name");
+		var price=$(obj).data("price");
+		var brand=$(obj).data("brand");
+		var detail=$(obj).data("detail");
+		var filename=$(obj).data("filename");
+		
+		console.log(product_id);
+		console.log(product_name);
+		console.log(price);
+		console.log(brand);
+		console.log(detail);
+		console.log(filename);
+		//퀵뷰창의 상품 정보에 출력
+		
+		//이미지
+		$(".quickview_pro_img img").attr({
+			src:"/resources/data/basic/"+product_id+"."+filename
 		});
 		
+		$(".quickview_pro_des .title").html(product_name);//상품명
+		$(".quickview_pro_des .price").html(price);//가격
+		$(".quickview_pro_des p").html(detail);//상세내용
+		
+		$(".quickview_pro_des a").on("click", function(e){
+			location.href="/shop/product/detail?product_id="+product_id;
+		});
 	});
-	</script>	
+	
+});
+</script>	
 </head>
 
 <body>
@@ -152,7 +152,6 @@
 						                        </ul>
 						                    </li>
                                             <%} %>
-                                            
                                         </ul>
                                     </div>
                                 </div>

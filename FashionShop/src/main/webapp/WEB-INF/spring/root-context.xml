@@ -55,13 +55,13 @@
 	  <!-- 공통코드 @Component(어노테이션으로 ) 등록되어있어서 bean으로 등록할 필요가없다! Bell -->
 	  <!-- 어느시점에, 어떤 메서드 호출시 공통코드를 동작시킬지를 xml로 서술해보자  -->
 	  <!-- AOP 설정! namespaces에서 체크  -->	  
-	  <aop:config>
+	  <!-- <aop:config>
 	  	<aop:aspect id="bellAspect" ref="bell">
-	  		<!-- 어떤 메서드 실행시 관여할지 서술 -->
+	  		어떤 메서드 실행시 관여할지 서술
 	  		<aop:pointcut expression="execution(public * com.koreait.fashionshop.model.bank.repository..*(**))" id="bellPointcut" />
 	  		<aop:after method="sound" pointcut-ref="bellPointcut"/>
 	  	</aop:aspect>
-	  </aop:config> 
+	  </aop:config>  -->
 	  
 	<!-- 방금 배운 AOP를 이용하여 트랜잭션 처리에 응용해보자 -->
 	<!-- 트랜잭션 -->
@@ -72,7 +72,7 @@
 		</tx:attributes>
 	</tx:advice>
 	
-	<!-- 츠랜잭션을 적용할 대상인 서비스 등록 -->
+	<!-- 트랜잭션을 적용할 대상인 서비스 등록 -->
 	<aop:config>
 		<aop:pointcut expression="execution(public * com.koreait.fashionshop.model.payment.service..*(..))" id="txPointcut"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
