@@ -45,15 +45,15 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.koreait.fashionshop.controller" />
+	<context:component-scan base-package="com.koreait.fashionshop.client.controller" />
 	
 	<!-- 설정파일을 열어서 , 메인 호출시 벨을 울리는 AOP설정 -->
 	<!-- 요청이 들어올때마다 불러야하므로 servlet에서 호출!  -->
 	<beans:bean id="bell" class="com.koreait.fashionshop.model.common.Bell"/>
-	<beans:bean id="memberSessionCheckAspect" class="com.koreait.fashionshop.aop.MemberSessionCheckAspect"/>
+	<beans:bean id="memberSessionCheckAspect" class="com.koreait.fashionshop.client.aop.MemberSessionCheckAspect"/>
 	
 	<!-- 상위카테고리를 가져오는 공통코드적용 AOP -->
-	<beans:bean id="globalDataAspect" class="com.koreait.fashionshop.aop.GlobalDataAspect"/>
+	<beans:bean id="globalDataAspect" class="com.koreait.fashionshop.client.aop.GlobalDataAspect"/>
 
 	<aop:config>
 	  	<aop:aspect id="bellAspect" ref="bell">
@@ -74,5 +74,5 @@
 	  </aop:config> 
 	  
 	  <!-- 글로벌예외객체 추가  -->
-	  <beans:bean id="globalExceptionHandler" class="com.koreait.fashionshop.aop.GlobalExceptionHandler"/>
+	  <beans:bean id="globalExceptionHandler" class="com.koreait.fashionshop.client.aop.GlobalExceptionHandler"/>
 </beans:beans>

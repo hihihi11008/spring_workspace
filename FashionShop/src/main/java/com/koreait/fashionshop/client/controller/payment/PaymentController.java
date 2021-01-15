@@ -1,4 +1,4 @@
-package com.koreait.fashionshop.controller.payment;
+package com.koreait.fashionshop.client.controller.payment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class PaymentController {
       Member member=(Member)session.getAttribute("member");
       logger.debug("product_id "+cart.getProduct_id());
       logger.debug("quantity "+cart.getQuantity());
-      cart.setMember_id(member.getMember_id());
+      cart.setMember_id(member.getMember_id()); 
       paymentService.insert(cart);
       
       //MessageConverter 에 의해 VO는 JSON형태로 응답되어질 수 있다!!
@@ -133,7 +133,7 @@ public class PaymentController {
 	   Member member =(Member)session.getAttribute("member");
 	   List cartList = paymentService.selectCartList(member.getMember_id());
 	   model.addAttribute("cartList", cartList);
-
+	   
 	   return "shop/payment/checkout";
 	   
    }

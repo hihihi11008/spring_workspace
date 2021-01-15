@@ -1,4 +1,4 @@
-package com.koreait.fashionshop.aop;
+package com.koreait.fashionshop.client.aop;
 
 import java.util.List;
 
